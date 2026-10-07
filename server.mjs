@@ -1,6 +1,7 @@
 import { createServer } from "http";
 import { parse } from "url";
 import next from "next";
+import { EventEmitter } from "events";
 import { WebSocketServer } from "ws";
 
 const dev = process.env.NODE_ENV !== "production";
@@ -25,7 +26,6 @@ function sessions() {
 
 function bus() {
   if (!globalThis.__waslBus) {
-    const { EventEmitter } = require("events");
     globalThis.__waslBus = new EventEmitter();
     globalThis.__waslBus.setMaxListeners(500);
   }
