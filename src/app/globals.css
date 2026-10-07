@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --bg: #f3eee6;
+  --panel: rgba(255, 252, 247, 0.86);
+  --ink: #162421;
+  --muted: #5d6d68;
+  --line: rgba(22, 36, 33, 0.1);
+  --tide: #1c5f59;
+  --coral: #d4654a;
+}
+.dark {
+  color-scheme: dark;
+  --bg: #101816;
+  --panel: rgba(22, 34, 31, 0.9);
+  --ink: #f4efe6;
+  --muted: #b7c4be;
+  --line: rgba(244, 239, 230, 0.12);
+}
+html, body { min-height: 100%; }
+body {
+  background:
+    radial-gradient(900px 420px at 10% -10%, rgba(28, 95, 89, 0.16), transparent 50%),
+    radial-gradient(700px 380px at 100% 0%, rgba(212, 101, 74, 0.12), transparent 46%),
+    var(--bg);
+  color: var(--ink);
+}
+.panel { background: var(--panel); border: 1px solid var(--line); }
+.skeleton { background: linear-gradient(90deg, rgba(22,36,33,.06), rgba(22,36,33,.12), rgba(22,36,33,.06)); background-size: 200% 100%; animation: shine 1.2s infinite; }
+.dark .skeleton { background: linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.1), rgba(255,255,255,.04)); background-size: 200% 100%; }
+@keyframes shine { to { background-position: -200% 0; } }
+.reel-snap { scroll-snap-type: y mandatory; }
+.reel-snap > * { scroll-snap-align: start; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(28,95,89,.35); border-radius: 99px; }

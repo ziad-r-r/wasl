@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: wasl
+      POSTGRES_PASSWORD: wasl
+      POSTGRES_DB: wasl
+    ports:
+      - "5432:5432"
+    volumes:
+      - wasl_pg:/var/lib/postgresql/data
+volumes:
+  wasl_pg:
